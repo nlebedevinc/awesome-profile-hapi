@@ -4,16 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run lint && tsc",
+    "lint": ""
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/hapi": "^17.0.19",
+    "@types/inert": "^5.1.1",
     "@types/node": "^10.11.0",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "tslint-config-standard": "^8.0.1"
   },
   "dependencies": {
-    "hapi": "^17.6.0"
+    "hapi": "^17.6.0",
+    "inert": "^5.1.0"
   }
 }
