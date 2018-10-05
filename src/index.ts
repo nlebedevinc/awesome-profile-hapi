@@ -1,4 +1,5 @@
 import * as Server from './server';
+import createServices from './services';
 
 // Catch unhandling unexpected exceptions
 process.on("uncaughtException", (error: Error) => {
@@ -12,7 +13,8 @@ process.on("unhandledRejection", (reason: any) => {
 
 async function start() {
   try {
-    const server = await Server.init();
+    const serviceFactory = createServices();
+    const server = await Server.init(serviceFactory);
     await server.start();
   } catch (err) {
     throw err;

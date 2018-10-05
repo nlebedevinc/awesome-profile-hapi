@@ -6,4 +6,14 @@ export interface AppState extends ApplicationState {
   };
   version: string;
   name: string;
+  services: AppServices;
+}
+
+export interface AppServices {
+  low: LowService;
+}
+
+export interface LowService {
+  getProjects: () => any[];
+  getProject: (id: string) => any;
 }

@@ -2,10 +2,10 @@ import { Server as HapiServer } from 'hapi';
 import * as path from 'path';
 import * as inert from 'inert';
 import * as appPackage from '../package.json';
-import { healthCheckApi } from './api';
-import { AppState } from './interfaces';
+import { healthCheckApi, projectsApi } from './api';
+import { AppState, AppServices } from './interfaces';
 
-export async function init(): Promise<HapiServer> {
+export async function init(services: AppServices): Promise<HapiServer> {
   try {
     const port = process.env.PORT || 3000;
     const server = new HapiServer({
@@ -13,12 +13,13 @@ export async function init(): Promise<HapiServer> {
       port,
       routes: {
         files: {
-          relativeTo: path.join(__dirname, 'public')
+          relativeTo: path.join(process.cwd(), 'public')
         }
       }
     });
 
     const appState = server.app as AppState;
+    appState.services = services;
     appState.name = appPackage.name;
     appState.version = appPackage.version;
     appState.git = {
@@ -26,6 +27,7 @@ export async function init(): Promise<HapiServer> {
     };
 
     healthCheckApi(server, '/v1/healthcheck');
+    projectsApi(server, '/v1/projects');
     await server.register(inert);
     return server;
   } catch (err) {
