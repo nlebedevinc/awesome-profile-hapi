@@ -1,0 +1,7 @@
+version: "3"
+services:
+  profile-skeleton-hapi:
+    image: profile/profile-skeleton-hapi:latest
+    ports:
+    - "5071:5071"
+    - "9229:9229"
