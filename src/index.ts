@@ -14,7 +14,7 @@ async function start() {
   try {
     const server = await Server.init();
     await server.start();
-  } catch(err) {
+  } catch (err) {
     throw err;
   }
 }

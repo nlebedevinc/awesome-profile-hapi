@@ -4,7 +4,7 @@ import * as inert from 'inert';
 
 export async function init(): Promise<HapiServer> {
   try {
-    const port = process.env.PORT;
+    const port = process.env.PORT || 3000;
     const server = new HapiServer({
       debug: false,
       port,

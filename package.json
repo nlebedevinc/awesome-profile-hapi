@@ -4,18 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node build/index",
     "build": "npm run lint && tsc",
-    "lint": ""
+    "lint": "tslint --project tsconfig.json --config tslint.json src/**/*.ts"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/hapi": "^17.0.19",
     "@types/inert": "^5.1.1",
+    "@types/jest": "^23.3.3",
     "@types/node": "^10.11.0",
     "jest": "^23.6.0",
-    "tslint-config-standard": "^8.0.1"
+    "tslint": "^5.11.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.1.1"
   },
   "dependencies": {
     "hapi": "^17.6.0",
