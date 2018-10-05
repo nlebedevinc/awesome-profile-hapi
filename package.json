@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "git": {
+    "url": "git@github.com:nlebedevinc/awesome-profile-hapi.git"
+  },
   "scripts": {
-    "start": "node build/index",
-    "build": "npm run lint && tsc",
+    "start": "node build/src/index",
+    "build": "del-cli ./build && npm run lint && tsc",
     "lint": "tslint --project tsconfig.json --config tslint.json src/**/*.ts"
   },
   "author": "",
@@ -15,6 +18,7 @@
     "@types/inert": "^5.1.1",
     "@types/jest": "^23.3.3",
     "@types/node": "^10.11.0",
+    "del-cli": "^1.1.0",
     "jest": "^23.6.0",
     "tslint": "^5.11.0",
     "tslint-config-standard": "^8.0.1",
