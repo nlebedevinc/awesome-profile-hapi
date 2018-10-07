@@ -84,4 +84,4 @@ const Documentation = {
 
 export {
   Documentation,
-}
+};
